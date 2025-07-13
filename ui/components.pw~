@@ -1,0 +1,79 @@
+from dearpygui import dearpygui as dpg
+
+
+def create_window(ui):
+    with dpg.window(tag="main_window"):
+        dpg.set_primary_window("main_window", True)
+        title_bar(ui)
+        # welcome_page(ui)
+        main_page(ui)
+
+def title_bar(ui):
+    with dpg.child_window(
+        tag="title_bar",
+        border=False,
+        height=30,
+        width=-1
+    ):
+        pass
+
+
+def welcome_page(ui):
+    with dpg.child_window():
+        dpg.add_text("Welcome to JULEA", tag="initial_page:welcome")
+        # dpg.bind_item_font("initial_page:welcome", "fnt_display")
+        dpg.add_text("Justified & Understanding Legal Entity Asistant", tag="initial_page:full_name")
+        # dpg.bind_item_font("initial_page:full_name", "fnt_headline")
+    with dpg.child_window(tag="initial_page:footer", height=60, width=-1):
+        dpg.add_button(
+            label="Start Automating",
+            width=-1,
+            height=-1,
+            # callback=self._change_page_callback,
+            user_data="main_page"
+        )
+
+
+def main_page(ui):
+    with dpg.group(horizontal=True):
+        main_page_input(ui)
+        main_page_output(ui)
+    main_page_controls(ui)
+
+
+def main_page_input(ui):
+    with dpg.child_window(width=400, height=-100):
+        dpg.add_text("Select sites to search on")
+        dpg.add_spacer(height=5)
+        dpg.add_checkbox(label="Google")
+        dpg.add_checkbox(label="Google")
+        dpg.add_checkbox(label="Google")
+        dpg.add_checkbox(label="Google")
+        dpg.add_checkbox(label="Google")
+        
+        dpg.add_spacer(height=5)
+        dpg.add_separator()
+        dpg.add_spacer(height=5)
+        dpg.add_checkbox(label="Batch Searching")
+
+
+def main_page_output(ui):
+    with dpg.child_window(width=-1, height=-100):
+        dpg.add_text("Output")
+        dpg.add_input_text(
+            readonly=True,
+           width=-1,
+           height=-1,
+           multiline=True
+           )
+
+
+def main_page_controls(ui):
+    with dpg.child_window(width=-1):
+        with dpg.group(horizontal=True):
+            dpg.add_text("Log: Searching for A....")
+            dpg.add_button(label="Start",width=80)
+            dpg.add_button(label="Pause",width=80)
+            dpg.add_button(label="Stop",width=80)
+        dpg.add_progress_bar(width=-1, label="scraping pogress",use_internal_label=False)
+

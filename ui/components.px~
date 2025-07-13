@@ -1,0 +1,38 @@
+from dearpygui import dearpygui as dpg
+
+
+def create_window(ui):
+    with dpg.window(tag="main_window"):
+        dpg.set_primary_window("main_window", True)
+        # welcome_page(ui)
+        main_page(ui)
+
+
+def welcome_page(ui):
+    with dpg.child_window():
+        dpg.add_text("Welcome to JULEA", tag="initial_page:welcome")
+        # dpg.bind_item_font("initial_page:welcome", "fnt_display")
+        dpg.add_text("Justified & Understanding Legal Entity Asistant", tag="initial_page:full_name")
+        # dpg.bind_item_font("initial_page:full_name", "fnt_headline")
+    with dpg.child_window(tag="initial_page:footer", height=60, width=-1):
+        dpg.add_button(
+            label="Start Automating",
+            width=-1,
+            height=-1,
+            # callback=self._change_page_callback,
+            user_data="main_page"
+        )
+
+def main_page(ui):
+    with dpg.group(horizontal=True):
+        with dpg.child_window(width=100):
+            dpg.add_text("test")
+        with dpg.child_window(width=100):
+            dpg.add_text("test")
+    with dpg.child_window():
+        with dpg.group(horizontal=True):
+            dpg.add_text("Log: Searching for A....")
+            dpg.add_button(label="Start",width=80)
+            dpg.add_button(label="Pause",width=80)
+            dpg.add_button(label="Stop",width=80)
+        dpg.add_progress_bar(width=-1, label="scraping pogress",use_internal_label=False)

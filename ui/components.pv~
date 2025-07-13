@@ -1,0 +1,103 @@
+from dearpygui import dearpygui as dpg
+
+
+def create_window(ui):
+    with dpg.window(tag="main_window"):
+        dpg.set_primary_window("main_window", True)
+        title_bar(ui)
+        welcome_page(ui)
+        main_page(ui)
+
+def title_bar(ui):
+    with dpg.child_window(
+        tag="title_bar",
+        border=False,
+        height=30,
+        width=-1
+    ):
+        pass
+
+
+def welcome_page(ui):
+    with dpg.group(tag="welcome_page"):
+        with dpg.child_window(height=-70):
+            with dpg.group(horizontal=True):
+                with dpg.child_window(border=False, width=-350):
+                    dpg.add_text("Welcome to JULEA", tag="welcome_page:title")
+                    dpg.bind_item_font("welcome_page:title", "fnt_headline")
+                    dpg.add_spacer(height=5)
+                    dpg.add_text("Justified & Understanding Legal Entity Asistant")
+                    dpg.add_text("Legal Entity Scraper")
+                with dpg.child_window(border=False, width=-10):
+                    dpg.add_spacer(height=25)
+                    dpg.add_image(texture_tag="julea_icon", height=300, width=300)
+        welcome_page_controls(ui)
+
+def welcome_page_controls(ui):
+    with dpg.child_window(tag="initial_page:footer", height=60, width=-1):
+        dpg.add_button(
+            label="Start Automating",
+            width=-1,
+            height=-1,
+            user_data="main_page"
+        )
+
+def main_page(ui):
+    with dpg.group(tag="main_page"):
+        with dpg.group(horizontal=True):
+            main_page_input(ui)
+            main_page_output(ui)
+        main_page_controls(ui)
+
+
+def main_page_input(ui):
+    with dpg.child_window(width=400, height=-75):
+        with dpg.collapsing_header(label="Site Selection"):
+            dpg.add_checkbox(label="Google")
+            dpg.add_checkbox(label="Google")
+            dpg.add_checkbox(label="Google")
+            dpg.add_checkbox(label="Google")
+            dpg.add_checkbox(label="Google")
+
+        dpg.add_spacer(height=5)
+        dpg.add_checkbox(label="Batch Searching")
+        dpg.add_spacer(height=5)
+        dpg.add_separator()
+        dpg.add_spacer(height=5)
+
+        with dpg.group(tag="batch_input"):
+            dpg.add_text("Batch Search")
+            dpg.add_spacer(height=5)
+            dpg.add_text("Select a text file containing the company names")
+            with dpg.group(horizontal=True):
+                dpg.add_input_text(readonly=True, width=-100)
+                dpg.add_button(label="Select",width=-1)
+
+        with dpg.group(tag="single_input"):
+            dpg.add_text("Mono Search")
+            dpg.add_spacer(height=5)
+            dpg.add_text("Enter a company name")
+            dpg.add_input_text(width=-1)
+
+def main_page_output(ui):
+    with dpg.child_window(width=-1, height=-75):
+        dpg.add_text("Output")
+        dpg.add_checkbox(label="Open sites in Browser")
+        dpg.add_input_text(
+            readonly=True,
+           width=-1,
+           height=-1,
+           multiline=True
+           )
+
+
+def main_page_controls(ui):
+    with dpg.child_window(width=-1):
+        with dpg.group(horizontal=True):
+            with dpg.child_window(width=-250, height=30, border=False):
+                dpg.add_text("Log: Searching for A....")
+            dpg.add_button(label="Start",width=-160, height=30)
+            dpg.add_button(label="Pause",width=-80, height=30)
+            dpg.add_button(label="Stop",width=-1, height=30)
+        dpg.add_progress_bar(width=-1, label="scraping pogress",use_internal_label=False)
+
