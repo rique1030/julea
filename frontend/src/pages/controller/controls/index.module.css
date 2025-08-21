@@ -1,0 +1,94 @@
+.Controls {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   height: 5rem;
+   min-height: 5rem;
+   gap: 0.5rem;
+}
+
+.ControlButton {
+   --button-color: var(--rp-moon-highlight-high);
+   cursor: pointer;
+   border: none;
+   padding: 0rem;
+   border-radius: 0.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.5rem;
+   width: 1.5rem;
+   height: 1.5rem;
+   color: rgb(var(--button-color));
+   background-color: rgba(var(--button-color), 0.2);
+   border: 2px solid rgb(var(--button-color));
+   transform: scale(1);
+   transition:
+      background-color 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+}
+
+.ControlButton:hover {
+   background-color: rgba(var(--button-color), 0.3);
+   transform: scale(1.1);
+}
+
+.ControlButton:active {
+   background-color: rgba(var(--button-color), 0.5);
+   transform: scale(0.9);
+}
+
+.ControlButton i {
+   font-size: 1.2rem;
+   font-weight: bold;
+}
+
+.ControlButtonSection {
+   display: flex;
+   flex-direction: row;
+   gap: 0.5rem;
+}
+
+.ControlsContainer {
+   display: flex;
+   flex-direction: row !important;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   gap: 0.25rem;
+}
+
+.ControlsContainer > p > span {
+   padding-right: 1rem;
+   font-weight: bold;
+}
+
+.ControlsContainer > p {
+   margin: 0;
+}
+
+.BarBackground {
+   width: 100%;
+   height: 1rem;
+   background-color: rgb(var(--rp-moon-base));
+   border-radius: 1rem;
+   box-sizing: border-box;
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+   border: 2px solid rgb(var(--rp-moon-pine));
+}
+
+.BarForeground {
+   margin-left: 0.5%;
+   box-sizing: border-box;
+   height: 50%;
+   border-radius: 1rem;
+   background: rgb(var(--rp-moon-pine));
+   background: linear-gradient(
+      90deg,
+      rgba(var(--rp-moon-pine), 1) 50%,
+      rgba(var(--rp-moon-foam), 1) 100%
+   );
+   transition: width 0.5s linear;
+}

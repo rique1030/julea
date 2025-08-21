@@ -1,0 +1,22 @@
+.TabRadioButton {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+}
+
+.TabRadioButton button {
+   --button-color: var(--rp-moon-love);
+   border: none;
+   padding: 0.2rem 1rem;
+   background-color: rgba(var(--button-color), 0.2);
+   color: rgb(var(--button-color));
+   width: 100%;
+   text-transform: uppercase;
+   font-size: 0.75rem;
+   cursor: pointer;
+   transition: background-color 0.15s ease-in-out;
+}
+
+.TabRadioButton button:hover {
+   background-color: rgba(var(--button-color), 0.3);
+}

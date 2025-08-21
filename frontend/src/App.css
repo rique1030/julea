@@ -1,0 +1,97 @@
+/* Globals */
+* {
+   box-sizing: border-box;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   font-family: "Calibri", sans-serif;
+   --global-width: calc(800px - 1.4rem);
+   --global-height: 500px;
+}
+
+h1 {
+   margin: 0;
+}
+
+body {
+   margin: 0;
+   max-width: var(--global-width);
+   max-height: var(--global-height);
+   overflow: hidden;
+}
+
+p {
+   color: rgb(var(--rp-moon-subtle));
+}
+/* Animations */
+
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+@keyframes coin_rotate {
+   0% {
+      transform: scaleX(1);
+   }
+
+   25% {
+      transform: scaleX(0);
+   }
+
+   50% {
+      transform: scaleX(-1);
+   }
+
+   75% {
+      transform: scaleX(0);
+   }
+   100% {
+      transform: scaleX(1);
+   }
+}
+/* In-App */
+
+.App {
+   background-color: rgb(var(--rp-moon-base));
+   color: rgb(var(--rp-moon-text));
+   min-width: var(--global-width);
+   max-width: var(--global-width);
+   width: var(--global-width);
+   min-height: var(--global-height);
+   max-height: var(--global-height);
+   height: var(--global-height);
+   overflow: hidden;
+}
+
+.Card {
+   background-color: rgb(var(--rp-moon-surface));
+   box-sizing: border-box !important;
+   padding: 1rem;
+   /* border: 1px solid rgb(var(--rp-moon-highlight-high)); */
+}
+
+hr {
+   width: 100%;
+   border: 1px solid rgb(var(--rp-moon-highlight-high));
+   margin: 10px 0;
+}
+
+::-webkit-scrollbar {
+   width: 1.4rem;
+}
+
+::-webkit-scrollbar:hover {
+   cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+   border: 0.5rem solid rgba(0, 0, 0, 0);
+   background-clip: padding-box;
+   border-radius: 1rem;
+   background-color: rgb(var(--rp-moon-highlight-high));
+}
