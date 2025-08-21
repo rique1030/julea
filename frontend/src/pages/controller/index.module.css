@@ -1,0 +1,17 @@
+.ControllerPage {
+   padding: 1rem;
+   display: flex;
+   flex-direction: column;
+   height: var(--global-height);
+   max-height: var(--global-height);
+   gap: 1rem;
+}
+
+.ControllerConfigContainer {
+   display: flex;
+   flex-direction: row !important;
+   height: 100%;
+   max-height: calc(var(--global-height) - 8rem);
+   width: 100%;
+   gap: 20px;
+}

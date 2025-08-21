@@ -1,0 +1,104 @@
+.WelcomePage {
+   padding: 1rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   height: var(--global-height);
+}
+
+.InfoContainer {
+   display: flex;
+   flex-direction: row !important;
+   align-items: center;
+   height: 100%;
+   width: 100%;
+   gap: 20px;
+}
+
+.Disclaimer {
+   border: 1px solid rgb(var(--rp-moon-love));
+   font-size: 14px;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-self: flex-end !important;
+   gap: 0;
+   height: 20%;
+   min-height: 20%;
+   max-height: 20%;
+}
+
+.Disclaimer p {
+   padding: 0;
+   margin: 0;
+}
+
+.Disclaimer h4 {
+   padding: 0;
+   margin: 0 0 10px 0;
+}
+
+.Features {
+   display: flex;
+   flex-direction: column;
+   max-width: 380px;
+   width: 100%;
+   font-size: 14px;
+   height: 90%;
+}
+
+.Features h4 {
+   margin: 0;
+}
+
+.Features a {
+   text-decoration: none;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+   color: rgb(var(--rp-moon-highlight-high));
+}
+
+.AppLogoContainer {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+}
+
+.AppLogo {
+   width: 100%;
+   height: 100%;
+   animation: coin_rotate 10s ease-in-out infinite;
+}
+
+.AppLogoContainer:hover .AppLogo {
+   animation: coin_rotate 10s ease-in-out infinite;
+}
+
+.StartAutomation {
+   width: 60%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-self: center;
+   margin: 10px 0;
+   height: 50px;
+   border-radius: 10px;
+   border: 1px solid rgb(var(--rp-moon-highlight-high));
+   background-color: rgb(var(--rp-moon-surface));
+   color: rgb(var(--rp-moon-text));
+   cursor: pointer;
+   transition: background-color 0.1s ease-in-out;
+}
+
+.StartAutomation:hover {
+   background-color: rgb(var(--rp-moon-overlay));
+}
+
+.StartAutomation:active {
+   background-color: rgb(var(--rp-moon-highlight-high));
+   transform: scale(0.95);
+}
